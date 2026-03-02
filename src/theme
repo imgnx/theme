@@ -114,6 +114,9 @@ theme_ai_color() {
 	fi
     fi
 
+    
+
+    
     if [[ -n "${THEME_AI_HTTP_URL:-}" && -x "$(command -v curl)" ]]; then
 	local body resp hex
 	body=$(printf '{"prompt":"%s","basename":"%s","namespace":"%s","path":"%s","items":"%s"}' \
@@ -202,12 +205,17 @@ THEME_ROLL() {
     local new="" used_ai=0
 
     if new="$(theme_ai_color)"; then
+	echo "$new"
 	if is_hex "$new"; then
 	    new="$(normalize_hex "$new")"
 	    used_ai=1
 	else
 	    new=""
 	fi
+    else
+	echo "\`new\` is not a hex."
+	echo "new: $new"
+	./fetch-ai.js "test"
     fi
 
     if [[ -z "$new" ]]; then
