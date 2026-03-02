@@ -215,7 +215,6 @@ THEME_ROLL() {
     else
 	echo "\`new\` is not a hex."
 	echo "new: $new"
-	./fetch-ai.js "test"
     fi
 
     if [[ -z "$new" ]]; then
