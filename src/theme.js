@@ -290,7 +290,7 @@ async function themeAiColor() {
 
         const out = (result.stdout || "").split(/\r?\n/)[0].trim();
         if (out) return out;
-      } catch {}
+      } catch { }
     }
   }
 
@@ -324,7 +324,7 @@ function ask(question) {
 async function promptColor(input = "") {
   let value = input;
 
-  for (;;) {
+  for (; ;) {
     if (!value) {
       value = await ask("Insert Hex (#RRGGBB): ");
     }
@@ -749,3 +749,4 @@ main()
     console.error(err);
     process.exit(1);
   });
+
